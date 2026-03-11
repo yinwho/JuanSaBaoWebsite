@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Juan sa Bao | Official Business Proposal</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -23,21 +23,23 @@
             background-color: var(--bg-cream);
             color: #2d3436;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; /* Better text on Safari */
         }
 
         .neu-card {
             background: var(--bg-cream);
             border-radius: 20px;
             box-shadow: 9px 9px 16px var(--3d-shadow), -9px -9px 16px var(--3d-light);
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid rgba(255,255,255,0.2);
-            transition: 0.3s ease-in-out;
             margin-bottom: 20px;
         }
 
+        /* SAFARI FIX: Prevents "?" by setting a solid background & fixed ratio */
         .product-img {
             width: 100%;
-            height: 220px;
+            height: 180px;
+            background-color: #e0e5ec; 
             object-fit: cover;
             border-radius: 15px;
             margin-bottom: 15px;
@@ -46,7 +48,7 @@
         }
 
         nav {
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,60 +59,60 @@
             z-index: 1000;
         }
 
-        .logo { font-weight: 700; font-size: 1.1rem; color: var(--ph-blue); }
+        .logo { font-weight: 700; font-size: 0.9rem; color: var(--ph-blue); }
 
         .hero {
             display: flex;
             align-items: center;
-            padding: 60px 10%;
-            gap: 40px;
+            padding: 40px 10%;
+            gap: 20px;
         }
 
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--ph-blue); }
+        .hero-text h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 15px; color: var(--ph-blue); }
 
-        .section-padding { padding: 60px 10%; }
+        .section-padding { padding: 40px 10%; }
         
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
         .cta-button {
             background: var(--ph-blue);
             color: white !important;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            transition: 0.3s;
+            border: none;
+            -webkit-appearance: none; /* Safari button fix */
+            cursor: pointer;
         }
 
-        /* --- MOBILE FIXES (Ensuring nothing disappears) --- */
+        /* Success Message Styling */
+        #success-box {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+        }
+
         @media (max-width: 768px) {
-            nav { justify-content: center; flex-direction: column; gap: 10px; }
-            
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding: 40px 5%;
-            }
-
-            .hero-text h1 { font-size: 2.2rem; }
-
-            .section-padding { padding: 40px 5%; }
-
-            /* Ensure the Pre-order button in the nav stays visible and looks good */
-            .nav-links { display: flex; gap: 15px; align-items: center; }
-            
-            .grid-3 { grid-template-columns: 1fr; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 20px 5%; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .section-padding { padding: 30px 5%; }
+            nav { padding: 10px 5%; }
+            .nav-links { display: flex; gap: 10px; }
         }
 
-        .business-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .business-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .badge { background: var(--ph-gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .badge { background: var(--ph-gold); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; }
+        input { width: 85%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; }
     </style>
 </head>
 <body>
@@ -118,8 +120,7 @@
     <nav>
         <div class="logo">JUAN SA BAO</div>
         <div class="nav-links">
-            <a href="#menu" style="text-decoration:none; color:inherit; font-size: 0.9rem;">Menu</a>
-            <a href="#order-section" class="cta-button" style="padding:8px 20px; font-size: 0.9rem;">Pre-Order</a>
+            <a href="#order-section" class="cta-button" style="font-size: 0.75rem; padding: 8px 15px;">PRE-ORDER</a>
         </div>
     </nav>
 
@@ -132,65 +133,62 @@
             <a href="#menu" class="cta-button">VIEW MENU</a>
         </div>
         <div class="hero-image">
-            <div class="neu-card" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; margin:auto;">
+            <div class="neu-card" style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: auto;">
                 🥟
             </div>
         </div>
     </section>
 
     <section class="section-padding" id="menu">
-        <h2 style="text-align:center; color: var(--ph-blue); margin-bottom: 30px;">The Collection</h2>
+        <h2 style="text-align:center; color: var(--ph-blue); margin-bottom: 25px;">The Collection</h2>
         <div class="grid-3">
             <div class="neu-card">
-                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?q=80&w=800&auto=format&fit=crop" class="product-img">
+                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400" class="product-img" alt="Sinigang XLB">
                 <h3 style="color:var(--ph-red)">Sinigang XLB</h3>
                 <p>Signature tamarind-infused pork broth.</p>
             </div>
             <div class="neu-card">
-                <img src="https://images.unsplash.com/photo-1591814448945-4432c74d1261?q=80&w=800&auto=format&fit=crop" class="product-img">
+                <img src="https://images.unsplash.com/photo-1591814448945-4432c74d1261?w=400" class="product-img" alt="Adobo XLB">
                 <h3 style="color:var(--ph-blue)">Adobo XLB</h3>
                 <p>Soy-vinegar reduction with tender pork.</p>
             </div>
             <div class="neu-card">
-                <img src="https://images.unsplash.com/photo-1563245332-69234479900d?q=80&w=800&auto=format&fit=crop" class="product-img">
+                <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400" class="product-img" alt="Bulalo XLB">
                 <h3 style="color:var(--ph-gold)">Bulalo XLB</h3>
                 <p>Beef marrow essence in a delicate wrapper.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="about">
-        <h2 style="text-align:center; margin-bottom: 30px;">Blueprint</h2>
-        <div class="grid-3">
-            <div class="neu-card"><h3>Advantage</h3><p>Unique Filipino broth techniques.</p></div>
-            <div class="neu-card"><h3>Revenue</h3><p>Fair sales & catering combos.</p></div>
-        </div>
-    </section>
-
-    <section class="section-padding" id="team" style="background: rgba(0,0,0,0.02);">
-        <h2 style="text-align:center; margin-bottom: 30px;">The Team</h2>
-        <div class="neu-card" style="overflow-x: auto;">
-            <table class="business-table">
-                <tr><td><b>Crisha Dimatacot</b></td><td><span class="badge">CEO</span></td></tr>
-                <tr><td><b>Ashley Asuncion</b></td><td><span class="badge">COO</span></td></tr>
-                <tr><td><b>Princess Cotas</b></td><td><span class="badge">CFO</span></td></tr>
-                <tr><td><b>Trisha Berba</b></td><td><span class="badge">CTO</span></td></tr>
-                <tr><td><b>Angelien Valdez</b></td><td><span class="badge">CMO</span></td></tr>
-            </table>
-        </div>
-    </section>
-
     <section class="section-padding" id="order-section">
-        <div class="neu-card" style="max-width: 500px; margin: auto;">
-            <h2 style="text-align:center;">Pre-Order</h2>
-            <input type="text" placeholder="Name" style="width:90%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;">
-            <button class="cta-button" style="width:100%; border:none;">SUBMIT ORDER</button>
+        <div class="neu-card" style="max-width: 400px; margin: auto; text-align: center;">
+            <h2 style="color: var(--ph-blue);">Pre-Order Now</h2>
+            <p>Limited to 30 early adopters!</p>
+            
+            <form id="orderForm">
+                <input type="text" id="custName" placeholder="Enter your name" required>
+                <button type="submit" class="cta-button" style="width:100%;">RESERVE MY BAO</button>
+            </form>
+
+            <div id="success-box">
+                Salamat, Ka-Bao! 🥟<br>
+                Your reservation is confirmed.
+            </div>
         </div>
     </section>
 
-    <footer style="text-align:center; padding: 40px; background: var(--ph-blue); color: white;">
-        <p>&copy; 2026 Juan sa Bao</p>
+    <footer style="text-align:center; padding: 30px; background: var(--ph-blue); color: white; font-size: 0.8rem;">
+        <p>&copy; 2026 Juan sa Bao | Culinary Fusion</p>
     </footer>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Hide the form and show the success message
+            this.style.display = 'none';
+            document.getElementById('success-box').style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>
