@@ -22,10 +22,9 @@
             margin: 0;
             background-color: var(--bg-cream);
             color: #2d3436;
-            overflow-x: hidden; /* Prevents side-scrolling on phones */
+            overflow-x: hidden;
         }
 
-        /* 3D Neumorphic Card */
         .neu-card {
             background: var(--bg-cream);
             border-radius: 20px;
@@ -33,9 +32,9 @@
             padding: 2rem;
             border: 1px solid rgba(255,255,255,0.2);
             transition: 0.3s ease-in-out;
+            margin-bottom: 20px;
         }
 
-        /* Fixed XLB Image Styling */
         .product-img {
             width: 100%;
             height: 220px;
@@ -58,14 +57,13 @@
             z-index: 1000;
         }
 
-        .logo { font-weight: 700; font-size: 1.2rem; color: var(--ph-blue); letter-spacing: 1px; }
+        .logo { font-weight: 700; font-size: 1.1rem; color: var(--ph-blue); }
 
         .hero {
             display: flex;
             align-items: center;
             padding: 60px 10%;
             gap: 40px;
-            min-height: 70vh;
         }
 
         .hero-text { flex: 1; }
@@ -73,7 +71,6 @@
 
         .section-padding { padding: 60px 10%; }
         
-        /* Grid that handles Laptop vs Phone automatically */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -82,40 +79,38 @@
 
         .cta-button {
             background: var(--ph-blue);
-            color: white;
+            color: white !important;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            border: none;
-            cursor: pointer;
+            transition: 0.3s;
         }
 
-        /* --- MOBILE FIXES (The Code You Asked For) --- */
+        /* --- MOBILE FIXES (Ensuring nothing disappears) --- */
         @media (max-width: 768px) {
+            nav { justify-content: center; flex-direction: column; gap: 10px; }
+            
             .hero {
-                flex-direction: column-reverse; /* Put image on top for phones */
+                flex-direction: column-reverse;
                 text-align: center;
                 padding: 40px 5%;
             }
 
-            .hero-text h1 {
-                font-size: 2.2rem; /* Smaller text so it fits phone screens */
-            }
+            .hero-text h1 { font-size: 2.2rem; }
 
-            .section-padding {
-                padding: 40px 5%;
-            }
+            .section-padding { padding: 40px 5%; }
 
-            .nav-links {
-                display: none; /* Simplifies menu for mobile */
-            }
+            /* Ensure the Pre-order button in the nav stays visible and looks good */
+            .nav-links { display: flex; gap: 15px; align-items: center; }
+            
+            .grid-3 { grid-template-columns: 1fr; }
         }
 
-        .business-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
-        .business-table td { padding: 12px; border-bottom: 1px solid #eee; }
-        .badge { background: var(--ph-gold); padding: 4px 10px; border-radius: 15px; font-size: 0.7rem; font-weight: bold; }
+        .business-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .business-table td { padding: 15px; border-bottom: 1px solid #eee; }
+        .badge { background: var(--ph-gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -123,8 +118,8 @@
     <nav>
         <div class="logo">JUAN SA BAO</div>
         <div class="nav-links">
-            <a href="#menu" style="text-decoration:none; color:inherit; margin-right:15px;">Menu</a>
-            <a href="#order-section" class="cta-button" style="padding:8px 15px;">Order</a>
+            <a href="#menu" style="text-decoration:none; color:inherit; font-size: 0.9rem;">Menu</a>
+            <a href="#order-section" class="cta-button" style="padding:8px 20px; font-size: 0.9rem;">Pre-Order</a>
         </div>
     </nav>
 
@@ -132,40 +127,48 @@
         <div class="hero-text">
             <span class="badge">TAMBLITZ 2026</span>
             <h1>Reimagining <br><span style="color:var(--ph-red)">Pinoy Comfort.</span></h1>
-            <p>Authentic <b>Sinigang, Bulalo, and Adobo</b> broths inside traditional Xiao Long Bao.</p>
+            <p>Authentic <b>Sinigang, Bulalo, and Adobo</b> soup dumplings.</p>
             <br>
-            <a href="#menu" class="cta-button">EXPLORE FLAVORS</a>
+            <a href="#menu" class="cta-button">VIEW MENU</a>
         </div>
         <div class="hero-image">
-            <div class="neu-card" style="width: 250px; height: 250px; display: flex; align-items: center; justify-content: center; font-size: 4rem; margin:auto;">
+            <div class="neu-card" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; margin:auto;">
                 🥟
             </div>
         </div>
     </section>
 
     <section class="section-padding" id="menu">
-        <h2 style="text-align:center; color: var(--ph-blue);">The Signature Collection</h2>
+        <h2 style="text-align:center; color: var(--ph-blue); margin-bottom: 30px;">The Collection</h2>
         <div class="grid-3">
             <div class="neu-card">
                 <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-red)">Sinigang XLB</h3>
-                <p>Signature tamarind-infused pork broth. Sour and savory.</p>
+                <p>Signature tamarind-infused pork broth.</p>
             </div>
             <div class="neu-card">
                 <img src="https://images.unsplash.com/photo-1591814448945-4432c74d1261?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-blue)">Adobo XLB</h3>
-                <p>Soy-vinegar reduction with tender pork filling.</p>
+                <p>Soy-vinegar reduction with tender pork.</p>
             </div>
             <div class="neu-card">
                 <img src="https://images.unsplash.com/photo-1563245332-69234479900d?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-gold)">Bulalo XLB</h3>
-                <p>Beef marrow essence captured in a delicate wrapper.</p>
+                <p>Beef marrow essence in a delicate wrapper.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="team">
-        <h2 style="text-align:center;">Our Team</h2>
+    <section class="section-padding" id="about">
+        <h2 style="text-align:center; margin-bottom: 30px;">Blueprint</h2>
+        <div class="grid-3">
+            <div class="neu-card"><h3>Advantage</h3><p>Unique Filipino broth techniques.</p></div>
+            <div class="neu-card"><h3>Revenue</h3><p>Fair sales & catering combos.</p></div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="team" style="background: rgba(0,0,0,0.02);">
+        <h2 style="text-align:center; margin-bottom: 30px;">The Team</h2>
         <div class="neu-card" style="overflow-x: auto;">
             <table class="business-table">
                 <tr><td><b>Crisha Dimatacot</b></td><td><span class="badge">CEO</span></td></tr>
@@ -174,6 +177,14 @@
                 <tr><td><b>Trisha Berba</b></td><td><span class="badge">CTO</span></td></tr>
                 <tr><td><b>Angelien Valdez</b></td><td><span class="badge">CMO</span></td></tr>
             </table>
+        </div>
+    </section>
+
+    <section class="section-padding" id="order-section">
+        <div class="neu-card" style="max-width: 500px; margin: auto;">
+            <h2 style="text-align:center;">Pre-Order</h2>
+            <input type="text" placeholder="Name" style="width:90%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;">
+            <button class="cta-button" style="width:100%; border:none;">SUBMIT ORDER</button>
         </div>
     </section>
 
