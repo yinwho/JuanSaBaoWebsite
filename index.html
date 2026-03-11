@@ -22,8 +22,10 @@
             margin: 0;
             background-color: var(--bg-cream);
             color: #2d3436;
+            overflow-x: hidden; /* Prevents side-scrolling on phones */
         }
 
+        /* 3D Neumorphic Card */
         .neu-card {
             background: var(--bg-cream);
             border-radius: 20px;
@@ -33,12 +35,7 @@
             transition: 0.3s ease-in-out;
         }
 
-        .neu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 12px 12px 20px var(--3d-shadow), -12px -12px 20px var(--3d-light);
-        }
-
-        /* FIXED XLB IMAGE STYLING */
+        /* Fixed XLB Image Styling */
         .product-img {
             width: 100%;
             height: 220px;
@@ -47,12 +44,10 @@
             margin-bottom: 15px;
             display: block;
             box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
-            background-color: #eee;
-            filter: brightness(0.95) contrast(1.05); /* Makes the XLB details pop */
         }
 
         nav {
-            padding: 20px 10%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -63,182 +58,128 @@
             z-index: 1000;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--ph-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .logo { font-weight: 700; font-size: 1.2rem; color: var(--ph-blue); letter-spacing: 1px; }
 
         .hero {
             display: flex;
             align-items: center;
-            padding: 80px 10%;
-            gap: 50px;
-            background: linear-gradient(135deg, #fdfaf5 0%, #f0f4f8 100%);
+            padding: 60px 10%;
+            gap: 40px;
+            min-height: 70vh;
         }
 
         .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--ph-blue); }
-        .hero-tagline { font-style: italic; color: var(--ph-red); font-size: 1.2rem; margin-bottom: 30px; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--ph-blue); }
 
-        .section-padding { padding: 80px 10%; }
+        .section-padding { padding: 60px 10%; }
+        
+        /* Grid that handles Laptop vs Phone automatically */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-
-        .badge { background: var(--ph-gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: var(--ph-blue); }
 
         .cta-button {
             background: var(--ph-blue);
             color: white;
-            padding: 18px 35px;
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 5px 5px 15px var(--3d-shadow);
             display: inline-block;
-            transition: 0.3s;
             border: none;
             cursor: pointer;
         }
 
-        .cta-button:hover { background: var(--ph-red); transform: scale(1.05); }
+        /* --- MOBILE FIXES (The Code You Asked For) --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse; /* Put image on top for phones */
+                text-align: center;
+                padding: 40px 5%;
+            }
 
-        .business-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 15px;
-            margin-top: 30px;
+            .hero-text h1 {
+                font-size: 2.2rem; /* Smaller text so it fits phone screens */
+            }
+
+            .section-padding {
+                padding: 40px 5%;
+            }
+
+            .nav-links {
+                display: none; /* Simplifies menu for mobile */
+            }
         }
-        .business-table tr { background: white; box-shadow: 4px 4px 10px rgba(0,0,0,0.05); border-radius: 10px; }
-        .business-table td { padding: 20px; border-top: 1px solid #f1f1f1; border-bottom: 1px solid #f1f1f1; }
 
-        #success-msg { display: none; text-align: center; background: #d4edda; color: #155724; padding: 20px; border-radius: 12px; margin-top: 20px; }
+        .business-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+        .business-table td { padding: 12px; border-bottom: 1px solid #eee; }
+        .badge { background: var(--ph-gold); padding: 4px 10px; border-radius: 15px; font-size: 0.7rem; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Juan sa Bao</div>
-        <div>
-            <a href="#menu" style="margin-right:20px; text-decoration:none; color:inherit;">Menu</a>
-            <a href="#about" style="margin-right:20px; text-decoration:none; color:inherit;">Blueprint</a>
-            <a href="#order-section" class="cta-button" style="padding:10px 20px;">Pre-Order</a>
+        <div class="logo">JUAN SA BAO</div>
+        <div class="nav-links">
+            <a href="#menu" style="text-decoration:none; color:inherit; margin-right:15px;">Menu</a>
+            <a href="#order-section" class="cta-button" style="padding:8px 15px;">Order</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-text">
-            <span class="badge">FIRST-MOVER ADVANTAGE</span>
-            <h1>Reimagining the <br><span style="color:var(--ph-red)">Pinoy Comfort.</span></h1>
-            <p class="hero-tagline">"Nostalgic savory culture in oriental style bao wrapping"</p>
-            <p>Juan sa Bao is the pioneer in fusion XLB, infusing authentic <b>Sinigang, Bulalo, and Adobo</b> broths into traditional soup dumplings.</p>
+            <span class="badge">TAMBLITZ 2026</span>
+            <h1>Reimagining <br><span style="color:var(--ph-red)">Pinoy Comfort.</span></h1>
+            <p>Authentic <b>Sinigang, Bulalo, and Adobo</b> broths inside traditional Xiao Long Bao.</p>
             <br>
-            <a href="#menu" class="cta-button">VIEW THE MENU</a>
+            <a href="#menu" class="cta-button">EXPLORE FLAVORS</a>
         </div>
         <div class="hero-image">
-            <div class="neu-card" style="width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+            <div class="neu-card" style="width: 250px; height: 250px; display: flex; align-items: center; justify-content: center; font-size: 4rem; margin:auto;">
                 🥟
             </div>
         </div>
     </section>
 
     <section class="section-padding" id="menu">
-        <h2 style="text-align:center; margin-bottom: 50px; color: var(--ph-blue);">The Signature Fusion Collection</h2>
+        <h2 style="text-align:center; color: var(--ph-blue);">The Signature Collection</h2>
         <div class="grid-3">
-            
             <div class="neu-card">
-                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?q=80&w=800&auto=format&fit=crop" alt="Traditional Xiao Long Bao" class="product-img">
+                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-red)">Sinigang XLB</h3>
-                <p>Signature tamarind-infused pork broth. The perfect balance of sour and savory in one bite.</p>
-                <span class="badge">BEST SELLER</span>
+                <p>Signature tamarind-infused pork broth. Sour and savory.</p>
             </div>
-
             <div class="neu-card">
-                <img src="https://cdn.ready-market.com.tw/21cd62de/Templates/pic/ANKO-Xiao-Long-Bao-1200x1200.jpg?v=09ffda8a$0" alt="Adobo Fusion XLB" class="product-img">
+                <img src="https://images.unsplash.com/photo-1591814448945-4432c74d1261?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-blue)">Adobo XLB</h3>
-                <p>National dish reimagined with a rich soy-vinegar reduction soup and tender pork filling.</p>
+                <p>Soy-vinegar reduction with tender pork filling.</p>
             </div>
-
             <div class="neu-card">
-                <img src="https://quanshuiwetmarket.com/cdn/shop/products/ShanghaiXLB2.png?v=1630428998$0" alt="Bulalo XLB Steamed" class="product-img">
+                <img src="https://images.unsplash.com/photo-1563245332-69234479900d?q=80&w=800&auto=format&fit=crop" class="product-img">
                 <h3 style="color:var(--ph-gold)">Bulalo XLB</h3>
-                <p>Beef marrow essence captured in a delicate wrapper. The ultimate Batangas comfort in a bao.</p>
-            </div>
-
-        </div>
-    </section>
-
-    
-
-    <section class="section-padding" id="about">
-        <h2 style="text-align:center; margin-bottom: 50px;">Business Blueprint</h2>
-        <div class="grid-3">
-            <div class="neu-card">
-                <h3 style="color:var(--ph-blue)">Unfair Advantage</h3>
-                <p>Hard to replicate broth techniques and a strong Filipino identity that competitors cannot easily copy.</p>
-            </div>
-            <div class="neu-card">
-                <h3 style="color:var(--ph-blue)">Revenue Streams</h3>
-                <p>Income generated through per-set sales, combo meals, and catering for the TamBlitz community.</p>
-            </div>
-            <div class="neu-card">
-                <h3 style="color:var(--ph-blue)">Early Adopters</h3>
-                <p>Targeting Food Vloggers, Culinary Students, and Urban Millennials.</p>
+                <p>Beef marrow essence captured in a delicate wrapper.</p>
             </div>
         </div>
     </section>
 
-    <section class="section-padding" id="team" style="background: #f0f4f8;">
-        <h2 style="text-align:center;">Executive Management</h2>
-        <table class="business-table">
-            <thead>
-                <tr><th>Executive Name</th><th>Position</th><th>Rationale</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><b>Crisha Dimatacot</b></td><td><span class="badge">CEO</span></td><td>Vision-setting and strategic leadership.</td></tr>
-                <tr><td><b>Ashley Asuncion</b></td><td><span class="badge" style="background:#00d2d3; color:white;">COO</span></td><td>Operations and logistics management.</td></tr>
-                <tr><td><b>Princess Cotas</b></td><td><span class="badge" style="background:#54a0ff; color:white;">CFO</span></td><td>Financial sustainability and cost analysis.</td></tr>
-                <tr><td><b>Trisha Berba</b></td><td><span class="badge" style="background:#5f27cd; color:white;">CTO</span></td><td>Digital innovation and tech solutions.</td></tr>
-                <tr><td><b>Angelien Valdez</b></td><td><span class="badge" style="background:#ff9f43; color:white;">CMO</span></td><td>Marketing and social media strategy.</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section class="section-padding" id="order-section">
-        <div class="neu-card" style="max-width: 600px; margin: auto;">
-            <h2 style="text-align:center; color: var(--ph-blue);">Reservation Form</h2>
-            <form id="baoOrderForm">
-                <input type="text" placeholder="Full Name" required style="width:100%; padding:15px; border-radius:12px; border:1px solid #ddd; margin-bottom:15px; font-family:inherit;">
-                <select required style="width:100%; padding:15px; border-radius:12px; border:1px solid #ddd; margin-bottom:15px; font-family:inherit;">
-                    <option value="">-- Choose your fusion --</option>
-                    <option value="Sinigang">Sinigang XLB</option>
-                    <option value="Adobo">Adobo XLB</option>
-                    <option value="Bulalo">Bulalo XLB</option>
-                </select>
-                <button type="submit" class="cta-button" style="width:100%">CONFIRM PRE-ORDER</button>
-            </form>
-            <div id="success-msg">
-                <h3>Salamat, Ka-Bao! 🥟</h3>
-                <p>Your order for the TamBlitz fair has been recorded.</p>
-            </div>
+    <section class="section-padding" id="team">
+        <h2 style="text-align:center;">Our Team</h2>
+        <div class="neu-card" style="overflow-x: auto;">
+            <table class="business-table">
+                <tr><td><b>Crisha Dimatacot</b></td><td><span class="badge">CEO</span></td></tr>
+                <tr><td><b>Ashley Asuncion</b></td><td><span class="badge">COO</span></td></tr>
+                <tr><td><b>Princess Cotas</b></td><td><span class="badge">CFO</span></td></tr>
+                <tr><td><b>Trisha Berba</b></td><td><span class="badge">CTO</span></td></tr>
+                <tr><td><b>Angelien Valdez</b></td><td><span class="badge">CMO</span></td></tr>
+            </table>
         </div>
     </section>
 
-    <footer style="text-align:center; padding: 60px 10%; background: var(--ph-blue); color: white;">
-        <p>&copy; 2026 Juan sa Bao | Culinary Authenticity Reimagined</p>
+    <footer style="text-align:center; padding: 40px; background: var(--ph-blue); color: white;">
+        <p>&copy; 2026 Juan sa Bao</p>
     </footer>
 
-    <script>
-        document.getElementById('baoOrderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            this.style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
